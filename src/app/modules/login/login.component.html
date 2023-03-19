@@ -5,7 +5,7 @@
     <div class="card-body">
         <p class="login-box-msg">Sign in to start your session</p>
 
-        <form [formGroup]="loginForm" (ngSubmit)="loginByAuth()">
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
             <div class="input-group mb-3">
                 <input
                     formControlName="email"
@@ -45,7 +45,6 @@
                         [type]="'submit'"
                         [block]="true"
                         [loading]="isAuthLoading"
-                        [disabled]="isFacebookLoading || isGoogleLoading"
                     >
                         Sign In
                     </pf-button>
