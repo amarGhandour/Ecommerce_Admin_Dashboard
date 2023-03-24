@@ -1,1 +1,71 @@
-<p>categories works!</p>
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1>Categories</h1>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active">categories</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+  <!-- Default box -->
+  <div class="container-fluid">
+    <div class="m-2">
+      <a color="primary" mat-raised-button routerLink="/categories/create">Add</a>
+    </div>
+    <div class="mat-elevation-z8">
+      <table [dataSource]="dataSource" mat-table>
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="image">
+          <th *matHeaderCellDef mat-header-cell> Image</th>
+          <td *matCellDef mat-cell><img class="item-img" src="assets/img/default.png"></td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th *matHeaderCellDef mat-header-cell> Name</th>
+          <td *matCellDef="let element" mat-cell> {{element.name}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+          <th *matHeaderCellDef mat-header-cell>
+            Actions
+          </th>
+          <td *matCellDef="let row" mat-cell>
+            <a
+              class="btn btn-primary d-inline-block mx-2"
+              routerLink="/categories/{{ row._id }}/edit"
+            >Edit</a
+            >
+            <button
+              (click)="deleteCategory(row._id)" color="warn" mat-raised-button
+            >
+              Delete
+            </button>
+          </td>
+        </ng-container>
+        <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+        <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+      </table>
+
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                     aria-label="Select page of periodic elements"
+                     showFirstLastButtons>
+      </mat-paginator>
+    </div>
+
+  </div>
+  <!-- /.card -->
+</section>
+<!-- /.content -->

@@ -1,6 +1,11 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {CategoriesService} from "@services/categories.service";
 import {ICategory} from "@/interfaces/icategory";
+import {MatTableDataSource} from "@angular/material/table";
+import {MatPaginator} from "@angular/material/paginator";
+import {ConfirmDialogComponent, ConfirmDialogModel} from "@components/confirm-dialog/confirm-dialog.component";
+import {MatDialog} from "@angular/material/dialog";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-categories',
@@ -9,9 +14,20 @@ import {ICategory} from "@/interfaces/icategory";
 })
 export class CategoriesComponent implements OnInit {
 
-  categories: ICategory[];
+  categories: ICategory[] = [];
 
-  constructor(private categoriesService: CategoriesService) {
+  displayedColumns: string[] = ['image', 'name', 'actions'];
+  public dataSource!: MatTableDataSource<ICategory>;
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+  confirmRes: boolean = false;
+
+  // ngAfterViewInit() {
+  //   this.dataSource.paginator = this.paginator;
+  // }
+
+  constructor(private categoriesService: CategoriesService, private toaster: ToastrService, public dialog: MatDialog) {
 
   }
 
@@ -23,9 +39,11 @@ export class CategoriesComponent implements OnInit {
   getAllCategories() {
     const observer = {
       next: (result: any) => {
+        console.log('here')
         this.categories = result.data;
         console.log(result.data)
-        // console.log(this.categories);
+        this.dataSource = new MatTableDataSource(this.categories);
+        this.dataSource.paginator = this.paginator;
       },
       error: (err: any) => {
         console.log(err);
@@ -48,5 +66,36 @@ export class CategoriesComponent implements OnInit {
     this.categoriesService.createCategory({name: 'other category'}).subscribe(observer);
   }
 
+  deleteCategory(id: any) {
+    const message = `Are you sure you want to do this?`;
+
+    const dialogData = new ConfirmDialogModel("Confirm Action", message);
+
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      maxWidth: "400px",
+      data: dialogData
+    });
+
+    dialogRef.afterClosed().subscribe(dialogResult => {
+      this.confirmRes = dialogResult;
+      if (this.confirmRes) {
+        const observer = {
+          next: (result) => {
+            this.toaster.success('Category successfully Deleted.');
+            this.categories = this.categories.filter((item) => item._id != id);
+            this.dataSource = new MatTableDataSource(this.categories);
+            this.dataSource.paginator = this.paginator;
+          },
+          error: (err) => {
+            console.log(err)
+          }
+        }
+        this.categoriesService.deleteCategory(id).subscribe(observer);
+      }
+    });
+  }
+
 
 }
+
+

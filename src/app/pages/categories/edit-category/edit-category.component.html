@@ -1,0 +1,73 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1>Categories</h1>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+          <li class="breadcrumb-item"><a routerLink="/categories">categories</a></li>
+          <li class="breadcrumb-item active">edit category</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+  <!-- Default box -->
+  <div class="container-fluid">
+    <form (ngSubmit)="editCategorySubmit()" [formGroup]="editFormElm">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="card card-primary">
+            <div class="card-body">
+
+              <div class="form-group">
+                <label for="sliderTitle">Category Name</label>
+                <input class="form-control" formControlName="name" id="sliderTitle" name="name" type="text">
+                <div *ngIf="name?.invalid && name?.touched" class="text text-danger my-1">
+                  <div *ngIf="name?.errors?.required">name field is required</div>
+                </div>
+                <div class="text text-danger my-1">
+                  <div *ngIf="errors?.name && name?.pristine">{{errors?.name}}</div>
+                </div>
+              </div>
+              <!-- /.form-group -->
+              <div class="d-flex">
+                <div class="form-group mr-5">
+                  <label for="customFile">Category Image</label>
+                  <div class="custom-file">
+                    <input (change)="onChooseImage($event)" class="custom-file-input" formControlName="image"
+                           id="customFile" name="image" type="file">
+                    <label class="custom-file-label" for="customFile">Choose file</label>
+                  </div>
+                </div>
+                <div *ngIf="catImgSrc !== null" class="d-flex">
+                  <img [src]="catImgSrc" alt="Category image" style="max-width:10rem; max-height: 10rem">
+                </div>
+              </div>
+
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-12 d-flex justify-content-center">
+          <a class="btn btn-secondary mx-3" routerLink="/categories">Back</a>
+          <input [disabled]="editFormElm.invalid" class="btn btn-success" type="submit" value="Update">
+        </div>
+      </div>
+    </form>
+
+  </div>
+  <!-- /.card -->
+</section>
+<!-- /.content -->

@@ -11,9 +11,7 @@ export class CategoriesService {
 
   constructor(private httpClient: HttpClient) {
     this.httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json'
-      })
+      headers: new HttpHeaders()
     };
   }
 
@@ -25,4 +23,17 @@ export class CategoriesService {
     return this.httpClient.post(`${environment.apiUrl}/categories`, body, this.httpOptions);
   }
 
+  getCategoryByID(id: any) {
+    return this.httpClient.get(`${environment.apiUrl}/categories/${id}`, this.httpOptions)
+  }
+
+  editCategory(body: any, id: any) {
+    return this.httpClient.put(`${environment.apiUrl}/categories/${id}`, body, this.httpOptions);
+
+  }
+
+  deleteCategory(id: any) {
+    return this.httpClient.delete(`${environment.apiUrl}/categories/${id}`, this.httpOptions);
+
+  }
 }

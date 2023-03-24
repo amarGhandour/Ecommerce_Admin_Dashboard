@@ -12,6 +12,8 @@ import {RecoverPasswordComponent} from '@modules/recover-password/recover-passwo
 import {SubMenuComponent} from '@pages/main-menu/sub-menu/sub-menu.component';
 import {ProductsComponent} from "@pages/products/products.component";
 import {CategoriesComponent} from "@pages/categories/categories.component";
+import {CreateCategoryComponent} from "@pages/categories/create-category/create-category.component";
+import {EditCategoryComponent} from "@pages/categories/edit-category/edit-category.component";
 
 const routes: Routes = [
   {
@@ -43,6 +45,14 @@ const routes: Routes = [
       {
         path: 'categories',
         component: CategoriesComponent
+      },
+      {
+        path: 'categories/create',
+        component: CreateCategoryComponent
+      },
+      {
+        path: 'categories/:id/edit',
+        component: EditCategoryComponent
       },
       {
         path: '',

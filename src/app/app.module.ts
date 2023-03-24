@@ -19,34 +19,44 @@ import {ToastrModule} from 'ngx-toastr';
 import {MessagesComponent} from '@modules/main/header/messages/messages.component';
 import {NotificationsComponent} from '@modules/main/header/notifications/notifications.component';
 
+import {CreateCategoryComponent} from '@pages/categories/create-category/create-category.component';
+import {SidebarSearchComponent} from '@components/sidebar-search/sidebar-search.component';
+import {ProductsComponent} from '@pages/products/products.component';
+import {CategoriesComponent} from '@pages/categories/categories.component';
+import {MainMenuComponent} from '@pages/main-menu/main-menu.component';
+import {SubMenuComponent} from '@pages/main-menu/sub-menu/sub-menu.component';
+import {MenuItemComponent} from '@components/menu-item/menu-item.component';
+import {ControlSidebarComponent} from '@modules/main/control-sidebar/control-sidebar.component';
+
 import {registerLocaleData} from '@angular/common';
 import localeEn from '@angular/common/locales/en';
 import {UserComponent} from '@modules/main/header/user/user.component';
 import {ForgotPasswordComponent} from '@modules/forgot-password/forgot-password.component';
 import {RecoverPasswordComponent} from '@modules/recover-password/recover-password.component';
 import {LanguageComponent} from '@modules/main/header/language/language.component';
-import {MainMenuComponent} from './pages/main-menu/main-menu.component';
-import {SubMenuComponent} from './pages/main-menu/sub-menu/sub-menu.component';
-import {MenuItemComponent} from './components/menu-item/menu-item.component';
-import {ControlSidebarComponent} from './modules/main/control-sidebar/control-sidebar.component';
+
 import {StoreModule} from '@ngrx/store';
 import {authReducer} from './store/auth/reducer';
 import {uiReducer} from './store/ui/reducer';
 import {ProfabricComponentsModule} from '@profabric/angular-components';
 import {defineCustomElements} from '@profabric/web-components/loader';
-import {SidebarSearchComponent} from './components/sidebar-search/sidebar-search.component';
-import { ProductsComponent } from './pages/products/products.component';
-import { CategoriesComponent } from './pages/categories/categories.component';
 import {httpInterceptorsProviders} from "@/interceptors";
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatTableModule} from "@angular/material/table";
+import {MatButtonModule} from "@angular/material/button";
+import {EditCategoryComponent} from './pages/categories/edit-category/edit-category.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import {ConfirmDialogComponent} from './components/confirm-dialog/confirm-dialog.component';
+
 
 defineCustomElements();
 registerLocaleData(localeEn, 'en-EN');
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        MainComponent,
-        LoginComponent,
+  declarations: [
+    AppComponent,
+    MainComponent,
+    LoginComponent,
         HeaderComponent,
         FooterComponent,
         MenuSidebarComponent,
@@ -56,31 +66,38 @@ registerLocaleData(localeEn, 'en-EN');
         DashboardComponent,
         MessagesComponent,
         NotificationsComponent,
-        UserComponent,
-        ForgotPasswordComponent,
-        RecoverPasswordComponent,
-        LanguageComponent,
-        MainMenuComponent,
-        SubMenuComponent,
-        MenuItemComponent,
-        ControlSidebarComponent,
-        SidebarSearchComponent,
-        ProductsComponent,
-        CategoriesComponent
-    ],
+    UserComponent,
+    ForgotPasswordComponent,
+    RecoverPasswordComponent,
+    LanguageComponent,
+    MainMenuComponent,
+    SubMenuComponent,
+    MenuItemComponent,
+    ControlSidebarComponent,
+    SidebarSearchComponent,
+    ProductsComponent,
+    CategoriesComponent,
+    CreateCategoryComponent,
+    EditCategoryComponent,
+    ConfirmDialogComponent
+  ],
     imports: [
         BrowserModule,
-        StoreModule.forRoot({auth: authReducer, ui: uiReducer}),
-        HttpClientModule,
-        AppRoutingModule,
-        ReactiveFormsModule,
-        BrowserAnimationsModule,
-        ToastrModule.forRoot({
-            timeOut: 3000,
-            positionClass: 'toast-top-right',
-            preventDuplicates: true
-        }),
-        ProfabricComponentsModule
+      StoreModule.forRoot({auth: authReducer, ui: uiReducer}),
+      HttpClientModule,
+      AppRoutingModule,
+      ReactiveFormsModule,
+      BrowserAnimationsModule,
+      ToastrModule.forRoot({
+        timeOut: 3000,
+        positionClass: 'toast-top-right',
+        preventDuplicates: true
+      }),
+      ProfabricComponentsModule,
+      MatPaginatorModule,
+      MatTableModule,
+      MatButtonModule,
+      MatDialogModule
     ],
     providers: [httpInterceptorsProviders],
     bootstrap: [AppComponent]
