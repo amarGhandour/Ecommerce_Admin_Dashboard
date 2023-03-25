@@ -40,23 +40,28 @@ import {authReducer} from './store/auth/reducer';
 import {uiReducer} from './store/ui/reducer';
 import {ProfabricComponentsModule} from '@profabric/angular-components';
 import {defineCustomElements} from '@profabric/web-components/loader';
-import {httpInterceptorsProviders} from "@/interceptors";
+import {httpInterceptorsProviders} from '@/interceptors';
 import {MatPaginatorModule} from '@angular/material/paginator';
-import {MatTableModule} from "@angular/material/table";
-import {MatButtonModule} from "@angular/material/button";
+import {MatTableModule} from '@angular/material/table';
+import {MatButtonModule} from '@angular/material/button';
 import {EditCategoryComponent} from './pages/categories/edit-category/edit-category.component';
-import {MatDialogModule} from "@angular/material/dialog";
+import {MatDialogModule} from '@angular/material/dialog';
 import {ConfirmDialogComponent} from './components/confirm-dialog/confirm-dialog.component';
-
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {BrandsComponent} from './pages/brands/brands.component';
+import {DeleteBrandComponent} from './pages/brands/delete-brand/delete-brand.component';
+import { AddBrandComponent } from './pages/brands/add-brand/add-brand.component';
+import { EditBrandComponent } from './pages/brands/edit-brand/edit-brand.component';
 
 defineCustomElements();
 registerLocaleData(localeEn, 'en-EN');
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    MainComponent,
-    LoginComponent,
+    declarations: [
+        AppComponent,
+        MainComponent,
+        LoginComponent,
         HeaderComponent,
         FooterComponent,
         MenuSidebarComponent,
@@ -66,38 +71,44 @@ registerLocaleData(localeEn, 'en-EN');
         DashboardComponent,
         MessagesComponent,
         NotificationsComponent,
-    UserComponent,
-    ForgotPasswordComponent,
-    RecoverPasswordComponent,
-    LanguageComponent,
-    MainMenuComponent,
-    SubMenuComponent,
-    MenuItemComponent,
-    ControlSidebarComponent,
-    SidebarSearchComponent,
-    ProductsComponent,
-    CategoriesComponent,
-    CreateCategoryComponent,
-    EditCategoryComponent,
-    ConfirmDialogComponent
-  ],
+        UserComponent,
+        ForgotPasswordComponent,
+        RecoverPasswordComponent,
+        LanguageComponent,
+        MainMenuComponent,
+        SubMenuComponent,
+        MenuItemComponent,
+        ControlSidebarComponent,
+        SidebarSearchComponent,
+        ProductsComponent,
+        CategoriesComponent,
+        CreateCategoryComponent,
+        EditCategoryComponent,
+        ConfirmDialogComponent,
+        BrandsComponent,
+        DeleteBrandComponent,
+        AddBrandComponent,
+        EditBrandComponent
+    ],
     imports: [
         BrowserModule,
-      StoreModule.forRoot({auth: authReducer, ui: uiReducer}),
-      HttpClientModule,
-      AppRoutingModule,
-      ReactiveFormsModule,
-      BrowserAnimationsModule,
-      ToastrModule.forRoot({
-        timeOut: 3000,
-        positionClass: 'toast-top-right',
-        preventDuplicates: true
-      }),
-      ProfabricComponentsModule,
-      MatPaginatorModule,
-      MatTableModule,
-      MatButtonModule,
-      MatDialogModule
+        StoreModule.forRoot({auth: authReducer, ui: uiReducer}),
+        HttpClientModule,
+        AppRoutingModule,
+        ReactiveFormsModule,
+        BrowserAnimationsModule,
+        ToastrModule.forRoot({
+            timeOut: 3000,
+            positionClass: 'toast-top-right',
+            preventDuplicates: true
+        }),
+        ProfabricComponentsModule,
+        MatPaginatorModule,
+        MatTableModule,
+        MatButtonModule,
+        MatDialogModule,
+        MatFormFieldModule,
+        MatInputModule
     ],
     providers: [httpInterceptorsProviders],
     bootstrap: [AppComponent]

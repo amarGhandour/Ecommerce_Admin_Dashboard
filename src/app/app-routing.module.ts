@@ -10,75 +10,90 @@ import {AuthGuard} from '@guards/auth.guard';
 import {ForgotPasswordComponent} from '@modules/forgot-password/forgot-password.component';
 import {RecoverPasswordComponent} from '@modules/recover-password/recover-password.component';
 import {SubMenuComponent} from '@pages/main-menu/sub-menu/sub-menu.component';
-import {ProductsComponent} from "@pages/products/products.component";
-import {CategoriesComponent} from "@pages/categories/categories.component";
-import {CreateCategoryComponent} from "@pages/categories/create-category/create-category.component";
-import {EditCategoryComponent} from "@pages/categories/edit-category/edit-category.component";
+import {ProductsComponent} from '@pages/products/products.component';
+import {CategoriesComponent} from '@pages/categories/categories.component';
+import {CreateCategoryComponent} from '@pages/categories/create-category/create-category.component';
+import {EditCategoryComponent} from '@pages/categories/edit-category/edit-category.component';
+import {BrandsComponent} from '@pages/brands/brands.component';
+import {AddBrandComponent} from '@pages/brands/add-brand/add-brand.component';
+import {EditBrandComponent} from '@pages/brands/edit-brand/edit-brand.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: MainComponent,
-    canActivate: [AuthGuard],
-    canActivateChild: [AuthGuard],
-    children: [
-      {
-        path: 'profile',
+    {
+        path: '',
+        component: MainComponent,
+        canActivate: [AuthGuard],
+        canActivateChild: [AuthGuard],
+        children: [
+            {
+                path: 'profile',
                 component: ProfileComponent
             },
             {
                 path: 'blank',
-              component: BlankComponent
+                component: BlankComponent
             },
-      {
-        path: 'sub-menu-1',
-        component: SubMenuComponent
-      },
-      {
-        path: 'sub-menu-2',
-        component: BlankComponent
-      },
-      {
-        path: 'products',
-        component: ProductsComponent
-      },
-      {
-        path: 'categories',
-        component: CategoriesComponent
-      },
-      {
-        path: 'categories/create',
-        component: CreateCategoryComponent
-      },
-      {
-        path: 'categories/:id/edit',
-        component: EditCategoryComponent
-      },
-      {
-        path: '',
-        component: DashboardComponent
-      }
-    ]
+            {
+                path: 'sub-menu-1',
+                component: SubMenuComponent
+            },
+            {
+                path: 'sub-menu-2',
+                component: BlankComponent
+            },
+            {
+                path: 'products',
+                component: ProductsComponent
+            },
+            {
+                path: 'categories',
+                component: CategoriesComponent
+            },
+            {
+                path: 'categories/create',
+                component: CreateCategoryComponent
+            },
+            {
+                path: 'categories/:id/edit',
+                component: EditCategoryComponent
+            },
+            {
+                path: 'brands',
+                component: BrandsComponent
+            },
+            {
+                path: 'brands/add',
+                component: AddBrandComponent
+            },
+            {
+                path: 'brands/edit/:id',
+                component: EditBrandComponent
+            },
+            {
+                path: '',
+                component: DashboardComponent
+            }
+        ]
     },
     {
         path: 'login',
-        component: LoginComponent,
-      // canActivate: [NonAuthGuard]
+        component: LoginComponent
+        // canActivate: [NonAuthGuard]
     },
     {
         path: 'register',
-        component: RegisterComponent,
-      //  canActivate: [NonAuthGuard]
+        component: RegisterComponent
+        //  canActivate: [NonAuthGuard]
     },
     {
         path: 'forgot-password',
-        component: ForgotPasswordComponent,
-      //   canActivate: [NonAuthGuard]
+        component: ForgotPasswordComponent
+        //   canActivate: [NonAuthGuard]
     },
     {
         path: 'recover-password',
-        component: RecoverPasswordComponent,
-      //  canActivate: [NonAuthGuard]
+        component: RecoverPasswordComponent
+        //  canActivate: [NonAuthGuard]
     },
     {path: '**', redirectTo: ''}
 ];

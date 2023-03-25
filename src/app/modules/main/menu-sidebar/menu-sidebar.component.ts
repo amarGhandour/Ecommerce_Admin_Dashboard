@@ -42,16 +42,21 @@ export const MENU = [
         iconClasses: 'fas fa-file',
         path: ['/blank']
     },
-  {
-    name: 'Products',
-    iconClasses: 'fas fa-file',
-    path: ['/products']
-  },
-  {
-    name: 'Categories',
-    iconClasses: 'fas fa-file',
-    path: ['/categories']
-  },
+    {
+        name: 'Products',
+        iconClasses: 'fas fa-suitcase',
+        path: ['/products']
+    },
+    {
+        name: 'Categories',
+        iconClasses: 'fas fa-vr-cardboard',
+        path: ['/categories']
+    },
+    {
+        name: 'Brands',
+        iconClasses: 'fas  fa-business-time',
+        path: ['/brands']
+    },
 
     {
         name: 'Main Menu',
