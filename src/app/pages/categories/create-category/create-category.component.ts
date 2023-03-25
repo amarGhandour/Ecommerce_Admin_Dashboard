@@ -56,10 +56,8 @@ export class CreateCategoryComponent {
 
   onChooseImage($event) {
     this.file = $event.target.files[0];
-
     const reader = new FileReader();
     reader.onload = e => this.categoryImgSrc = reader.result;
-
     reader.readAsDataURL(this.file);
   }
 }

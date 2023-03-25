@@ -16,21 +16,24 @@ import {CreateCategoryComponent} from "@pages/categories/create-category/create-
 import {EditCategoryComponent} from "@pages/categories/edit-category/edit-category.component";
 import {AddProductComponent} from "@pages/products/add-product/add-product.component";
 import {EditProductComponent} from "@pages/products/edit-product/edit-product.component";
+import {BrandsComponent} from '@pages/brands/brands.component';
+import {AddBrandComponent} from '@pages/brands/add-brand/add-brand.component';
+import {EditBrandComponent} from '@pages/brands/edit-brand/edit-brand.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: MainComponent,
-    canActivate: [AuthGuard],
-    canActivateChild: [AuthGuard],
-    children: [
-      {
-        path: 'profile',
+    {
+        path: '',
+        component: MainComponent,
+        canActivate: [AuthGuard],
+        canActivateChild: [AuthGuard],
+        children: [
+            {
+                path: 'profile',
                 component: ProfileComponent
             },
             {
                 path: 'blank',
-              component: BlankComponent
+                component: BlankComponent
             },
       {
         path: 'sub-menu-1',
@@ -64,6 +67,18 @@ const routes: Routes = [
         path: 'categories/:id/edit',
         component: EditCategoryComponent
       },
+          {
+            path: 'brands',
+            component: BrandsComponent
+          },
+          {
+            path: 'brands/add',
+            component: AddBrandComponent
+          },
+          {
+            path: 'brands/edit/:id',
+            component: EditBrandComponent
+          },
       {
         path: '',
         component: DashboardComponent
@@ -72,23 +87,23 @@ const routes: Routes = [
     },
     {
         path: 'login',
-        component: LoginComponent,
-      // canActivate: [NonAuthGuard]
+        component: LoginComponent
+        // canActivate: [NonAuthGuard]
     },
     {
         path: 'register',
-        component: RegisterComponent,
-      //  canActivate: [NonAuthGuard]
+        component: RegisterComponent
+        //  canActivate: [NonAuthGuard]
     },
     {
         path: 'forgot-password',
-        component: ForgotPasswordComponent,
-      //   canActivate: [NonAuthGuard]
+        component: ForgotPasswordComponent
+        //   canActivate: [NonAuthGuard]
     },
     {
         path: 'recover-password',
-        component: RecoverPasswordComponent,
-      //  canActivate: [NonAuthGuard]
+        component: RecoverPasswordComponent
+        //  canActivate: [NonAuthGuard]
     },
     {path: '**', redirectTo: ''}
 ];
