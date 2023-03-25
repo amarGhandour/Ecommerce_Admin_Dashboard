@@ -2,10 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {ToastrService} from 'ngx-toastr';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {Ibrand} from '@/interfaces/ibrand';
-import {CategoriesService} from '@services/categories.service';
 import {MatDialog} from '@angular/material/dialog';
 import {BrandService} from '@services/brand.service';
+import {IBrand} from "@/interfaces/ibrand";
 
 @Component({
     selector: 'app-edit-brand',
@@ -13,9 +12,9 @@ import {BrandService} from '@services/brand.service';
     styleUrls: ['./edit-brand.component.scss']
 })
 export class EditBrandComponent implements OnInit {
-    editFormElm: FormGroup;
-    brand: Ibrand;
-    brandImgSrc: any = null;
+  editFormElm: FormGroup;
+  brand: IBrand;
+  brandImgSrc: any = null;
     errors: any = {};
     file: any = null;
 

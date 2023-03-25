@@ -1,18 +1,12 @@
-import {
-    AfterViewInit,
-    Component,
-    OnInit,
-    Input,
-    ViewChild
-} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 
-import {MatDialog, MatDialogRef} from '@angular/material/dialog';
+import {MatDialog} from '@angular/material/dialog';
 
 import {BrandService} from '@services/brand.service';
-import {Ibrand} from '@/interfaces/ibrand';
+import {IBrand} from '@/interfaces/ibrand';
 import {Router} from '@angular/router';
 import {DeleteBrandComponent} from './delete-brand/delete-brand.component';
 
@@ -23,10 +17,10 @@ import {DeleteBrandComponent} from './delete-brand/delete-brand.component';
 })
 export class BrandsComponent implements OnInit {
     @ViewChild(MatPaginator) paginator!: MatPaginator;
-    @ViewChild(MatSort) sort!: MatSort;
-    public dataSource!: MatTableDataSource<Ibrand>;
-    displayedColumns: string[] = ['#', 'name', 'Operations'];
-    brands: Ibrand[];
+  @ViewChild(MatSort) sort!: MatSort;
+  public dataSource!: MatTableDataSource<IBrand>;
+  displayedColumns: string[] = ['#', 'name', 'Operations'];
+  brands: IBrand[];
     constructor(
         public brandSer: BrandService,
         public r: Router,
