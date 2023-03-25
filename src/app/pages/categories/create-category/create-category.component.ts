@@ -49,6 +49,8 @@ export class CreateCategoryComponent {
       }
     }
 
+    console.log(form)
+
     this.categoriesService.createCategory(form).subscribe(observer);
   }
 

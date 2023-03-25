@@ -29,7 +29,6 @@ export class CategoriesService {
 
   editCategory(body: any, id: any) {
     return this.httpClient.put(`${environment.apiUrl}/categories/${id}`, body, this.httpOptions);
-
   }
 
   deleteCategory(id: any) {

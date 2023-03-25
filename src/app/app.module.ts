@@ -47,6 +47,9 @@ import {MatButtonModule} from "@angular/material/button";
 import {EditCategoryComponent} from './pages/categories/edit-category/edit-category.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import {ConfirmDialogComponent} from './components/confirm-dialog/confirm-dialog.component';
+import {AddProductComponent} from './pages/products/add-product/add-product.component';
+import {EditProductComponent} from './pages/products/edit-product/edit-product.component';
+import {NgxColorsModule} from "ngx-colors";
 
 
 defineCustomElements();
@@ -79,7 +82,9 @@ registerLocaleData(localeEn, 'en-EN');
     CategoriesComponent,
     CreateCategoryComponent,
     EditCategoryComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    AddProductComponent,
+    EditProductComponent
   ],
     imports: [
         BrowserModule,
@@ -97,7 +102,8 @@ registerLocaleData(localeEn, 'en-EN');
       MatPaginatorModule,
       MatTableModule,
       MatButtonModule,
-      MatDialogModule
+      MatDialogModule,
+      NgxColorsModule
     ],
     providers: [httpInterceptorsProviders],
     bootstrap: [AppComponent]

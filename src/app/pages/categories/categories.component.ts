@@ -23,10 +23,6 @@ export class CategoriesComponent implements OnInit {
 
   confirmRes: boolean = false;
 
-  // ngAfterViewInit() {
-  //   this.dataSource.paginator = this.paginator;
-  // }
-
   constructor(private categoriesService: CategoriesService, private toaster: ToastrService, public dialog: MatDialog) {
 
   }
@@ -50,20 +46,6 @@ export class CategoriesComponent implements OnInit {
       }
     }
     this.categoriesService.getAllCategories().subscribe(observer);
-  }
-
-  addNewCategory() {
-    const observer = {
-      next: (result: any) => {
-        this.categories = result.data;
-        console.log(result)
-        // console.log(this.categories);
-      },
-      error: (err: any) => {
-        console.log(err);
-      }
-    }
-    this.categoriesService.createCategory({name: 'other category'}).subscribe(observer);
   }
 
   deleteCategory(id: any) {

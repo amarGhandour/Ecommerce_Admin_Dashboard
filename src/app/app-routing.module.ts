@@ -14,6 +14,8 @@ import {ProductsComponent} from "@pages/products/products.component";
 import {CategoriesComponent} from "@pages/categories/categories.component";
 import {CreateCategoryComponent} from "@pages/categories/create-category/create-category.component";
 import {EditCategoryComponent} from "@pages/categories/edit-category/edit-category.component";
+import {AddProductComponent} from "@pages/products/add-product/add-product.component";
+import {EditProductComponent} from "@pages/products/edit-product/edit-product.component";
 
 const routes: Routes = [
   {
@@ -41,6 +43,14 @@ const routes: Routes = [
       {
         path: 'products',
         component: ProductsComponent
+      },
+      {
+        path: 'products/create',
+        component: AddProductComponent
+      },
+      {
+        path: 'products/:id/edit',
+        component: EditProductComponent
       },
       {
         path: 'categories',

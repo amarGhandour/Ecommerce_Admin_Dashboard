@@ -1,0 +1,167 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1>Products</h1>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+          <li class="breadcrumb-item"><a routerLink="/products">products</a></li>
+          <li class="breadcrumb-item active">add new product</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+  <!-- Default box -->
+  <div class="container-fluid">
+    <form (ngSubmit)="createProductSubmit()" [formGroup]="createProductForm">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="card card-primary">
+            <div class="card-body">
+
+              <!--Title Field -->
+              <div class="form-group">
+                <label for="productTitle">Title</label>
+                <input class="form-control" formControlName="title" id="productTitle" name="title" type="text">
+                <div *ngIf="title?.invalid && title?.touched" class="text text-danger my-1">
+                  <div *ngIf="title?.errors?.required">title field is required</div>
+                </div>
+                <div class="text text-danger my-1">
+                  <div *ngIf="errors?.title && title?.pristine">{{errors?.title}}</div>
+                </div>
+              </div>
+
+              <!--Description Field -->
+              <div class="form-group">
+                <label for="productDescription">Product Description</label>
+                <textarea class="form-control" formControlName="description" id="productDescription" name="description"
+                          rows="4"></textarea>
+                <div *ngIf="description?.invalid && description?.touched" class="text text-danger my-1">
+                  <div *ngIf="description?.errors?.required">description field is required</div>
+                </div>
+                <div class="text text-danger my-1">
+                  <div *ngIf="errors?.description && description?.pristine">{{errors?.description}}</div>
+                </div>
+              </div>
+
+              <!--Category Field -->
+              <div class="form-group">
+                <label for="category">Category</label>
+                <select class="custom-select" formControlName="category" id="category" name="category">
+                  <option disabled value="">Select a choice</option>
+                  <option *ngFor="let category of categories" [ngValue]="category._id"
+                          selected>{{category.name}}</option>
+                </select>
+                <div class="text text-danger my-1">
+                  <div *ngIf="errors?.category && category?.pristine">{{errors?.category}}</div>
+                </div>
+              </div>
+
+              <!--Brand Field -->
+              <div class="form-group">
+                <label for="barnd">Brand</label>
+                <select class="custom-select" formControlName="brand" id="barnd" name="brand">
+                  <option disabled value="">Select a choice</option>
+                  <option *ngFor="let brand of brands" [ngValue]="brand._id">{{brand.name}}</option>
+                </select>
+                <div class="text text-danger my-1">
+                  <div *ngIf="errors?.brand && brand?.pristine">{{errors?.brand}}</div>
+                </div>
+              </div>
+
+              <!--Quantity Field -->
+              <div class="form-group">
+                <label for="quantity">Quantity</label>
+                <input class="form-control" formControlName="quantity" id="quantity" name="quantity" type="number">
+                <div *ngIf="quantity?.invalid && quantity?.touched" class="text text-danger my-1">
+                  <div *ngIf="quantity?.errors?.required">quantity field is required</div>
+                </div>
+                <div class="text text-danger my-1">
+                  <div *ngIf="errors?.quantity && quantity?.pristine">{{errors?.quantity}}</div>
+                </div>
+              </div>
+
+              <!--Price Field -->
+              <div class="form-group">
+                <label for="price">Price</label>
+                <input class="form-control" formControlName="price" id="price" name="price" type="number">
+                <div *ngIf="price?.invalid && price?.touched" class="text text-danger my-1">
+                  <div *ngIf="price?.errors?.required">price field is required</div>
+                </div>
+                <div class="text text-danger my-1">
+                  <div *ngIf="errors?.price && price?.pristine">{{errors?.price}}</div>
+                </div>
+              </div>
+
+              <!--Price after discount Field -->
+              <div class="form-group">
+                <label for="priceAfterDiscount">Price after discount</label>
+                <input class="form-control" formControlName="priceAfterDiscount" id="priceAfterDiscount"
+                       name="priceAfterDiscount" type="number">
+                <div class="text text-danger my-1">
+                  <div
+                    *ngIf="errors?.priceAfterDiscount && priceAfterDiscount?.pristine">{{errors?.priceAfterDiscount}}</div>
+                </div>
+              </div>
+              <!-- /.form-group -->
+
+              <div class="form-group">
+                <label for="productTitle">Title</label>
+                <ng-container *ngFor="let control of colors.controls; index as i">
+                  <!--                  <input class="form-control" [formControl]="colors.controls[i]" type="text">-->
+                  <ngx-colors [formControl]="colors.controls[i]" ngx-colors-trigger
+                              style="display: inline-block; margin:5px;"></ngx-colors>
+
+                </ng-container>
+                <!--                <div *ngIf="title?.invalid && title?.touched" class="text text-danger my-1">-->
+                <!--                  <div *ngIf="title?.errors?.required">title field is required</div>-->
+                <!--                </div>-->
+                <!--                <div class="text text-danger my-1">-->
+                <!--                  <div *ngIf="errors?.title && title?.pristine">{{errors?.title}}</div>-->
+                <!--                </div>-->
+                <button (click)="addColor()" type="button">add color</button>
+              </div>
+
+
+              <!--Cover image Field -->
+              <div class="d-flex">
+                <div class="form-group mr-5">
+                  <label for="customFile">Cover Image</label>
+                  <div class="custom-file">
+                    <input (change)="onChooseImage($event)" class="custom-file-input" formControlName="imageCover"
+                           id="customFile" multiple name="imageCover" type="file">
+                    <label class="custom-file-label" for="customFile">Choose file</label>
+                  </div>
+                </div>
+                <div *ngIf="productImgSrc !== null" class="d-flex">
+                  <img [src]="productImgSrc" alt="Category image" style="max-width:10rem; max-height: 10rem">
+                </div>
+              </div>
+
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-12 d-flex justify-content-center">
+          <a class="btn btn-secondary mx-3" routerLink="/products">Back</a>
+          <input [disabled]="createProductForm.invalid" class="btn btn-success" type="submit" value="Create">
+        </div>
+      </div>
+    </form>
+    {{createProductForm.value| json}}
+  </div>
+  <!-- /.card -->
+</section>
+<!-- /.content -->
