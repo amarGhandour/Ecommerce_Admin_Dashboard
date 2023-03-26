@@ -49,15 +49,20 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {ConfirmDialogComponent} from './components/confirm-dialog/confirm-dialog.component';
 import {AddProductComponent} from './pages/products/add-product/add-product.component';
 import {EditProductComponent} from './pages/products/edit-product/edit-product.component';
-import {NgxColorsModule} from "ngx-colors";
+import {NgxColorsModule} from 'ngx-colors';
 
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {BrandsComponent} from './pages/brands/brands.component';
 import {DeleteBrandComponent} from './pages/brands/delete-brand/delete-brand.component';
-import { AddBrandComponent } from './pages/brands/add-brand/add-brand.component';
-import { EditBrandComponent } from './pages/brands/edit-brand/edit-brand.component';
-
+import {AddBrandComponent} from './pages/brands/add-brand/add-brand.component';
+import {EditBrandComponent} from './pages/brands/edit-brand/edit-brand.component';
+import {CouponsListComponent} from './pages/coupons/coupons-list/coupons-list.component';
+import {DeleteCouponComponent} from './pages/coupons/delete-coupon/delete-coupon.component';
+import {AddCouponComponent} from './pages/coupons/add-coupon/add-coupon.component';
+import {EditCouponComponent} from './pages/coupons/edit-coupon/edit-coupon.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
 defineCustomElements();
 registerLocaleData(localeEn, 'en-EN');
 
@@ -75,47 +80,53 @@ registerLocaleData(localeEn, 'en-EN');
         DashboardComponent,
         MessagesComponent,
         NotificationsComponent,
-    UserComponent,
-    ForgotPasswordComponent,
-    RecoverPasswordComponent,
-    LanguageComponent,
-    MainMenuComponent,
-    SubMenuComponent,
-    MenuItemComponent,
-    ControlSidebarComponent,
-    SidebarSearchComponent,
-    ProductsComponent,
-    CategoriesComponent,
-    CreateCategoryComponent,
-    EditCategoryComponent,
-    ConfirmDialogComponent,
-    AddProductComponent,
-    EditProductComponent,
-      BrandsComponent,
-      DeleteBrandComponent,
-      AddBrandComponent,
-      EditBrandComponent
-  ],
+        UserComponent,
+        ForgotPasswordComponent,
+        RecoverPasswordComponent,
+        LanguageComponent,
+        MainMenuComponent,
+        SubMenuComponent,
+        MenuItemComponent,
+        ControlSidebarComponent,
+        SidebarSearchComponent,
+        ProductsComponent,
+        CategoriesComponent,
+        CreateCategoryComponent,
+        EditCategoryComponent,
+        ConfirmDialogComponent,
+        AddProductComponent,
+        EditProductComponent,
+        BrandsComponent,
+        DeleteBrandComponent,
+        AddBrandComponent,
+        EditBrandComponent,
+        CouponsListComponent,
+        DeleteCouponComponent,
+        AddCouponComponent,
+        EditCouponComponent
+    ],
     imports: [
         BrowserModule,
-      StoreModule.forRoot({auth: authReducer, ui: uiReducer}),
-      HttpClientModule,
-      AppRoutingModule,
-      ReactiveFormsModule,
-      BrowserAnimationsModule,
-      ToastrModule.forRoot({
-        timeOut: 3000,
-        positionClass: 'toast-top-right',
-        preventDuplicates: true
-      }),
-      ProfabricComponentsModule,
-      MatPaginatorModule,
-      MatTableModule,
-      MatButtonModule,
-      MatDialogModule,
-      NgxColorsModule,
-      MatFormFieldModule,
-      MatInputModule
+        StoreModule.forRoot({auth: authReducer, ui: uiReducer}),
+        HttpClientModule,
+        AppRoutingModule,
+        ReactiveFormsModule,
+        BrowserAnimationsModule,
+        ToastrModule.forRoot({
+            timeOut: 3000,
+            positionClass: 'toast-top-right',
+            preventDuplicates: true
+        }),
+        ProfabricComponentsModule,
+        MatPaginatorModule,
+        MatTableModule,
+        MatButtonModule,
+        MatDialogModule,
+        NgxColorsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatDatepickerModule,
+        MatNativeDateModule
     ],
     providers: [httpInterceptorsProviders],
     bootstrap: [AppComponent]

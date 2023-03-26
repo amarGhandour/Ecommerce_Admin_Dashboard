@@ -57,6 +57,11 @@ export const MENU = [
         iconClasses: 'fas  fa-business-time',
         path: ['/brands']
     },
+    {
+        name: 'Coupons',
+        iconClasses: 'fas fa-tag',
+        path: ['/coupons']
+    },
 
     {
         name: 'Main Menu',
