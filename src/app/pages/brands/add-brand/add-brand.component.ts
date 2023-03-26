@@ -29,7 +29,7 @@ export class AddBrandComponent {
     get name() {
         return this.createBrandForm.get('name');
     }
-    createCategorySubmit() {
+    createBrandSubmit() {
         if (this.createBrandForm.invalid) return;
         console.log('created');
 

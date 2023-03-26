@@ -1,17 +1,17 @@
 import {Component, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {Inject} from '@angular/core';
-import {BrandService} from '@services/brand.service';
 import {Router} from '@angular/router';
+import {CouponService} from '@services/coupon.service';
 
 @Component({
-    selector: 'app-delete-brand',
-    templateUrl: './delete-brand.component.html',
-    styleUrls: ['./delete-brand.component.scss']
+    selector: 'app-delete-coupon',
+    templateUrl: './delete-coupon.component.html',
+    styleUrls: ['./delete-coupon.component.scss']
 })
-export class DeleteBrandComponent implements OnInit {
+export class DeleteCouponComponent implements OnInit {
     constructor(
-        public brandSer: BrandService,
+        public couponSer: CouponService,
         @Inject(MAT_DIALOG_DATA) public data: any,
 
         public r: Router
@@ -31,7 +31,7 @@ export class DeleteBrandComponent implements OnInit {
                 console.log(err);
             }
         };
-        this.brandSer.deleteBrand(this.data.key).subscribe(observer);
-        this.r.navigateByUrl('/brands');
+        this.couponSer.deleteCoupon(this.data.key).subscribe(observer);
+        this.r.navigateByUrl('/coupons');
     }
 }

@@ -1,0 +1,145 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Coupon</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/brands">Coupon</a>
+                    </li>
+                    <li class="breadcrumb-item active">add new Coupon</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <!-- /.container-fluid -->
+</section>
+<!-- Main content -->
+<section class="content">
+    <!-- Default box -->
+    <div class="container-fluid">
+        <form (ngSubmit)="createCouponSubmit()" [formGroup]="createCouponForm">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card card-primary">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="sliderTitle">Coupon Name</label>
+                                <input
+                                    class="form-control"
+                                    formControlName="name"
+                                    id="sliderTitle"
+                                    name="name"
+                                    type="text"
+                                />
+                                <div
+                                    *ngIf="name?.invalid && name?.touched"
+                                    class="text text-danger my-1"
+                                >
+                                    <div *ngIf="name?.errors?.required">
+                                        Coupon Name field is required
+                                    </div>
+                                </div>
+                                <div class="text text-danger my-1">
+                                    <div *ngIf="errors?.name && name?.pristine">
+                                        {{ errors?.name }}
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.form-group -->
+                            <div class="form-group">
+                                <label for="sliderTitle">Coupon Discount</label>
+                                <input
+                                    class="form-control"
+                                    formControlName="discount"
+                                    id="sliderTitle"
+                                    name="discount"
+                                    type="number"
+                                    min="50"
+                                    max="499"
+                                />
+                                <div
+                                    *ngIf="
+                                        discount?.invalid && discount?.touched
+                                    "
+                                    class="text text-danger my-1"
+                                >
+                                    <div *ngIf="discount?.errors?.required">
+                                        discount field is required
+                                    </div>
+                                    <div *ngIf="discount?.errors?.pattern">
+                                        discount field must be between 50 and
+                                        499
+                                    </div>
+                                </div>
+                                <div class="text text-danger my-1">
+                                    <div
+                                        *ngIf="
+                                            errors?.discount &&
+                                            discount?.pristine
+                                        "
+                                    >
+                                        {{ errors?.discount }}
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.form-group -->
+                            <div class="form-group">
+                                <label for="sliderTitle"
+                                    >Coupon Expire Date</label
+                                >
+                                <input
+                                    class="form-control"
+                                    formControlName="expire"
+                                    id="sliderTitle"
+                                    name="discount"
+                                    type="date"
+                                    [min]="c"
+                                />
+                                <div
+                                    *ngIf="expire?.invalid && expire?.touched"
+                                    class="text text-danger my-1"
+                                >
+                                    <div *ngIf="expire?.errors?.required">
+                                        Expire Date is required
+                                    </div>
+                                </div>
+                                <div class="text text-danger my-1">
+                                    <div
+                                        *ngIf="
+                                            errors?.discount && expire?.pristine
+                                        "
+                                    >
+                                        {{ errors?.expire }}
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.form-group -->
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 d-flex justify-content-center">
+                    <a class="btn btn-secondary mx-3" routerLink="/coupons"
+                        >Back</a
+                    >
+                    <input
+                        [disabled]="createCouponForm.invalid"
+                        class="btn btn-success"
+                        type="submit"
+                        value="Create"
+                    />
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- /.card -->
+</section>
+<!-- /.content -->

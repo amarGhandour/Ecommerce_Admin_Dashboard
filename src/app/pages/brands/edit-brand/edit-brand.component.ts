@@ -2,9 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {ToastrService} from 'ngx-toastr';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {MatDialog} from '@angular/material/dialog';
 import {BrandService} from '@services/brand.service';
-import {IBrand} from "@/interfaces/ibrand";
+import {IBrand} from '@/interfaces/ibrand';
 
 @Component({
     selector: 'app-edit-brand',
@@ -12,9 +11,9 @@ import {IBrand} from "@/interfaces/ibrand";
     styleUrls: ['./edit-brand.component.scss']
 })
 export class EditBrandComponent implements OnInit {
-  editFormElm: FormGroup;
-  brand: IBrand;
-  brandImgSrc: any = null;
+    editFormElm: FormGroup;
+    brand: IBrand;
+    brandImgSrc: any = null;
     errors: any = {};
     file: any = null;
 
@@ -23,8 +22,7 @@ export class EditBrandComponent implements OnInit {
         private router: Router,
         private fb: FormBuilder,
         private brandSer: BrandService,
-        private activeRoute: ActivatedRoute,
-        public dialog: MatDialog
+        private activeRoute: ActivatedRoute
     ) {
         this.editFormElm = fb.group({
             name: ['', Validators.required],
@@ -40,7 +38,7 @@ export class EditBrandComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.getCategoryDetails();
+        this.getBrandDetails();
     }
 
     editBrandSubmit() {
@@ -70,7 +68,7 @@ export class EditBrandComponent implements OnInit {
         reader.readAsDataURL(this.file);
     }
 
-    private getCategoryDetails() {
+    private getBrandDetails() {
         const observer = {
             next: (result) => {
                 this.brand = result.data;
@@ -89,6 +87,6 @@ export class EditBrandComponent implements OnInit {
 
     private fillFormFields() {
         this.name.setValue(this.brand.name);
-          this.brandImgSrc = this.brand.image;
+        this.brandImgSrc = this.brand.image;
     }
 }
