@@ -22,109 +22,120 @@ import {EditBrandComponent} from '@pages/brands/edit-brand/edit-brand.component'
 import {CouponsListComponent} from '@pages/coupons/coupons-list/coupons-list.component';
 import {AddCouponComponent} from '@pages/coupons/add-coupon/add-coupon.component';
 import {EditCouponComponent} from '@pages/coupons/edit-coupon/edit-coupon.component';
+import {OrdersComponent} from "@pages/orders/orders.component";
+import {OrderDetailsComponent} from "@pages/orders/order-details/order-details.component";
 
 const routes: Routes = [
-    {
+  {
+    path: '',
+    component: MainComponent,
+    canActivate: [AuthGuard],
+    canActivateChild: [AuthGuard],
+    children: [
+      {
+        path: 'profile',
+        component: ProfileComponent
+      },
+      {
+        path: 'blank',
+        component: BlankComponent
+      },
+      {
+        path: 'sub-menu-1',
+        component: SubMenuComponent
+      },
+      {
+        path: 'sub-menu-2',
+        component: BlankComponent
+      },
+      {
+        path: 'products',
+        component: ProductsComponent
+      },
+      {
+        path: 'products/create',
+        component: AddProductComponent
+      },
+      {
+        path: 'products/:id/edit',
+        component: EditProductComponent
+      },
+      {
+        path: 'categories',
+        component: CategoriesComponent
+      },
+      {
+        path: 'categories/create',
+        component: CreateCategoryComponent
+      },
+      {
+        path: 'categories/:id/edit',
+        component: EditCategoryComponent
+      },
+      {
+        path: 'brands',
+        component: BrandsComponent
+      },
+      {
+        path: 'brands/add',
+        component: AddBrandComponent
+      },
+      {
+        path: 'brands/edit/:id',
+        component: EditBrandComponent
+      },
+      {
+        path: 'coupons',
+        component: CouponsListComponent
+      },
+      {
+        path: 'coupons/add',
+        component: AddCouponComponent
+      },
+      {
+        path: 'coupons/edit/:id',
+        component: EditCouponComponent
+      },
+      {
         path: '',
-        component: MainComponent,
-        canActivate: [AuthGuard],
-        canActivateChild: [AuthGuard],
-        children: [
-            {
-                path: 'profile',
-                component: ProfileComponent
-            },
-            {
-                path: 'blank',
-                component: BlankComponent
-            },
-            {
-                path: 'sub-menu-1',
-                component: SubMenuComponent
-            },
-            {
-                path: 'sub-menu-2',
-                component: BlankComponent
-            },
-            {
-                path: 'products',
-                component: ProductsComponent
-            },
-            {
-                path: 'products/create',
-                component: AddProductComponent
-            },
-            {
-                path: 'products/:id/edit',
-                component: EditProductComponent
-            },
-            {
-                path: 'categories',
-                component: CategoriesComponent
-            },
-            {
-                path: 'categories/create',
-                component: CreateCategoryComponent
-            },
-            {
-                path: 'categories/:id/edit',
-                component: EditCategoryComponent
-            },
-            {
-                path: 'brands',
-                component: BrandsComponent
-            },
-            {
-                path: 'brands/add',
-                component: AddBrandComponent
-            },
-            {
-                path: 'brands/edit/:id',
-                component: EditBrandComponent
-            },
-            {
-                path: 'coupons',
-                component: CouponsListComponent
-            },
-            {
-                path: 'coupons/add',
-                component: AddCouponComponent
-            },
-            {
-                path: 'coupons/edit/:id',
-                component: EditCouponComponent
-            },
-            {
-                path: '',
-                component: DashboardComponent
-            }
-        ]
-    },
-    {
-        path: 'login',
-        component: LoginComponent
-        // canActivate: [NonAuthGuard]
-    },
-    {
-        path: 'register',
-        component: RegisterComponent
-        //  canActivate: [NonAuthGuard]
-    },
-    {
-        path: 'forgot-password',
-        component: ForgotPasswordComponent
-        //   canActivate: [NonAuthGuard]
-    },
-    {
-        path: 'recover-password',
-        component: RecoverPasswordComponent
-        //  canActivate: [NonAuthGuard]
-    },
-    {path: '**', redirectTo: ''}
+        component: DashboardComponent
+      }
+      , {
+        path: 'orders',
+        component: OrdersComponent
+      },
+       {
+        path: 'orders/:id',
+        component: OrderDetailsComponent
+      }
+    ]
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+    // canActivate: [NonAuthGuard]
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
+    //  canActivate: [NonAuthGuard]
+  },
+  {
+    path: 'forgot-password',
+    component: ForgotPasswordComponent
+    //   canActivate: [NonAuthGuard]
+  },
+  {
+    path: 'recover-password',
+    component: RecoverPasswordComponent
+    //  canActivate: [NonAuthGuard]
+  },
+  {path: '**', redirectTo: ''}
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes, {})],
-    exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes, {})],
+  exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule {
+}

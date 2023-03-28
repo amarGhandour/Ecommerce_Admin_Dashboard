@@ -10,7 +10,7 @@ import {HeaderComponent} from '@modules/main/header/header.component';
 import {FooterComponent} from '@modules/main/footer/footer.component';
 import {MenuSidebarComponent} from '@modules/main/menu-sidebar/menu-sidebar.component';
 import {BlankComponent} from '@pages/blank/blank.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ProfileComponent} from '@pages/profile/profile.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {RegisterComponent} from '@modules/register/register.component';
@@ -63,6 +63,8 @@ import {AddCouponComponent} from './pages/coupons/add-coupon/add-coupon.componen
 import {EditCouponComponent} from './pages/coupons/edit-coupon/edit-coupon.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
+import { OrdersComponent } from './pages/orders/orders.component';
+import { OrderDetailsComponent } from './pages/orders/order-details/order-details.component';
 defineCustomElements();
 registerLocaleData(localeEn, 'en-EN');
 
@@ -103,7 +105,9 @@ registerLocaleData(localeEn, 'en-EN');
         CouponsListComponent,
         DeleteCouponComponent,
         AddCouponComponent,
-        EditCouponComponent
+        EditCouponComponent,
+        OrdersComponent,
+        OrderDetailsComponent
     ],
     imports: [
         BrowserModule,
@@ -126,7 +130,8 @@ registerLocaleData(localeEn, 'en-EN');
         MatFormFieldModule,
         MatInputModule,
         MatDatepickerModule,
-        MatNativeDateModule
+        MatNativeDateModule,
+        FormsModule
     ],
     providers: [httpInterceptorsProviders],
     bootstrap: [AppComponent]

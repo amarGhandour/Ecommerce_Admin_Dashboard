@@ -1,0 +1,95 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1>Orders Details</h1>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+          <li class="breadcrumb-item "><a routerLink="/orders">Orders</a></li>
+          <li class="breadcrumb-item active">order details</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+  <!-- Default box -->
+  <div class="container-fluid">
+    <!--    Orders details-->
+    <div class="card">
+      <div class="card-header">
+        Featured
+      </div>
+      <div class="card-body">
+        <!--        Orders Products-->
+        <ng-container *ngFor="let item of order?.cartItems">
+          <div class="d-flex">
+            <img src="assets/img/default.png" style="width: 15rem; margin-right: 4rem" class="border border-dark">
+            <div class="border-0 border-dark" style="width: 10rem">
+              <div>title: {{item?.product?.title}}</div>
+              <div>category: {{item?.product?.category?.name}}</div>
+              <div>
+                <label for="pro-qty" class="mr-4">quantity</label>
+                <input class="form-control" style="width: 3rem;" type="number" disabled id="pro-qty" value="{{item?.quantity}}"
+                       name="quantity">
+              </div>
+            </div>
+          </div>
+        </ng-container>
+
+      </div>
+      <div class="card-footer">
+        <span>Paid: {{order?.isPaid? "YES" : "NO"}}</span>
+        <span>Delivered: {{order?.isDelivered? "YES" : "NO"}}</span>
+        <span>Payment Method: {{order?.paymentMethodType}}</span>
+
+        <span>Total: {{order?.totalOrderPrice}}</span>
+      </div>
+    </div>
+    <!--   /.Orders details-->
+
+    <!--Customer Details-->
+    <div class="card">
+      <div class="card-header">
+        Featured
+      </div>
+      <div class="card-body">
+        <div>Customer Name: {{order?.user?.name}}</div>
+        <div>Customer Email: {{order?.user?.email}}</div>
+      </div>
+    </div>
+    <!--./Customer Details-->
+
+    <div class="card-footer">
+      <div class="d-flex border border-dark" style="width: 40rem;">
+        <div class="form-group">
+          <label for="delivered">Delivered</label>
+          <select class="custom-select" [(ngModel)]="delivered" style="width: 5rem"  id="delivered" name="delivered">
+            <option disabled value="">Select a choice</option>
+            <option  [ngValue]="true">YES</option>
+            <option  [ngValue]="false">NO</option>
+          </select>
+          <button type="button" class="btn-primary" (click)="makeDelivered()">Save</button>
+        </div>
+        <div class="form-group">
+          <label for="paid">Paid</label>
+          <select class="custom-select"  [(ngModel)]="paid" style="width: 5rem"  id="paid" name="paid">
+            <option disabled selected value="">Select a choice</option>
+            <option  [ngValue]="true">YES</option>
+            <option  [ngValue]="false">NO</option>
+          </select>
+          <button type="button" class="primary" (click)="makePaid()">Save</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- /.card -->
+</section>
+<!-- /.content -->

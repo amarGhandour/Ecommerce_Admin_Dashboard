@@ -1,0 +1,82 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1>Orders</h1>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+          <li class="breadcrumb-item active">orders</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+  <!-- Default box -->
+  <div class="container-fluid">
+    <div class="mat-elevation-z8">
+      <table [dataSource]="dataSource" mat-table>
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="no">
+          <th *matHeaderCellDef mat-header-cell> NO.</th>
+          <td *matCellDef mat-cell><img class="item-img" src="assets/img/default.png"></td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th *matHeaderCellDef mat-header-cell> Name</th>
+          <td *matCellDef="let element" mat-cell> {{element?.user?.name}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="paymentMethodType">
+          <th *matHeaderCellDef mat-header-cell> Payment Method</th>
+          <td *matCellDef="let element" mat-cell> {{element.paymentMethodType}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="totalOrderPrice">
+          <th *matHeaderCellDef mat-header-cell> Total Price</th>
+          <td *matCellDef="let element" mat-cell> {{element.totalOrderPrice}} </td>
+        </ng-container>
+
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="isDelivered">
+          <th *matHeaderCellDef mat-header-cell> Delivered</th>
+          <td *matCellDef="let element" mat-cell> {{element.isDelivered}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="isPaid">
+          <th *matHeaderCellDef mat-header-cell> Paid</th>
+          <td *matCellDef="let element" mat-cell> {{element.isPaid}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+          <th *matHeaderCellDef mat-header-cell> Actions</th>
+          <td *matCellDef="let element" mat-cell> <a color="primary" mat-raised-button routerLink="/orders/{{element._id}}">View</a></td>
+        </ng-container>
+
+
+        <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+        <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+      </table>
+
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                     aria-label="Select page of periodic elements"
+                     showFirstLastButtons>
+      </mat-paginator>
+    </div>
+
+  </div>
+  <!-- /.card -->
+</section>
+<!-- /.content -->
