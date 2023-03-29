@@ -2,14 +2,14 @@
 <a [routerLink]="['/']" class="brand-link">
     <pf-image
         src="assets/img/logo.png"
-        alt="AdminLTE Logo"
+        alt="eBuy Logo"
         class="brand-image"
         height="33"
         width="33"
         rounded
         style="opacity: 0.8"
     ></pf-image>
-    <span class="brand-text font-weight-light">AdminLTE 3</span>
+    <span class="brand-text font-weight-light">eBuy</span>
 </a>
 
 <!-- Sidebar -->
@@ -27,10 +27,8 @@
                 rounded
             ></pf-image>
         </div>
-        <div class="info">
-            <a [routerLink]="['/profile']" class="d-block">
-                {{ user.email }}
-            </a>
+        <div class="info text-white">
+                {{ user.name }}
         </div>
     </div>
 

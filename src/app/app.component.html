@@ -1,1 +1,9 @@
+<!-- Loading spinner -->
+<div *ngIf="loading" class="loading-container justify-content-center align-items-center ">
+  <mat-progress-spinner class="overlay__spinner"
+    color="warn"
+    mode="indeterminate">
+  </mat-progress-spinner>
+</div>
+
 <router-outlet></router-outlet>

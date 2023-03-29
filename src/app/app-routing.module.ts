@@ -33,20 +33,12 @@ const routes: Routes = [
     canActivateChild: [AuthGuard],
     children: [
       {
+        path: '',
+        component: ProductsComponent
+      },
+      {
         path: 'profile',
         component: ProfileComponent
-      },
-      {
-        path: 'blank',
-        component: BlankComponent
-      },
-      {
-        path: 'sub-menu-1',
-        component: SubMenuComponent
-      },
-      {
-        path: 'sub-menu-2',
-        component: BlankComponent
       },
       {
         path: 'products',
@@ -95,10 +87,6 @@ const routes: Routes = [
       {
         path: 'coupons/edit/:id',
         component: EditCouponComponent
-      },
-      {
-        path: '',
-        component: DashboardComponent
       }
       , {
         path: 'orders',

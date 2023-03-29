@@ -6,6 +6,8 @@ import {MatPaginator} from "@angular/material/paginator";
 import {ConfirmDialogComponent, ConfirmDialogModel} from "@components/confirm-dialog/confirm-dialog.component";
 import {MatDialog} from "@angular/material/dialog";
 import {ToastrService} from "ngx-toastr";
+import {LoadingService} from "@services/loading.service";
+import {delay} from "rxjs";
 
 @Component({
   selector: 'app-products',
@@ -15,14 +17,13 @@ import {ToastrService} from "ngx-toastr";
 export class ProductsComponent implements OnInit {
 
   products: IProduct[] = [];
-
   confirmRes: boolean;
   public dataSource: MatTableDataSource<IProduct>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   displayedColumns: string[] = ['image', 'title', 'price', 'category', 'rating', 'actions'];
 
-  constructor(private productsService: ProductsService, private dialog: MatDialog, private toaster: ToastrService) {
+  constructor( private _loading: LoadingService, private productsService: ProductsService, private dialog: MatDialog, private toaster: ToastrService) {
 
   }
 
@@ -75,5 +76,6 @@ export class ProductsComponent implements OnInit {
       }
     });
   }
+
 
 }
