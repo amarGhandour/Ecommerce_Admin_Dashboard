@@ -51,13 +51,13 @@
         <!-- Name Column -->
         <ng-container matColumnDef="isDelivered">
           <th *matHeaderCellDef mat-header-cell> Delivered</th>
-          <td *matCellDef="let element" mat-cell> {{element.isDelivered}} </td>
+          <td *matCellDef="let element" mat-cell> {{element.isDelivered? "YES" : "NO"}} </td>
         </ng-container>
 
         <!-- Name Column -->
         <ng-container matColumnDef="isPaid">
           <th *matHeaderCellDef mat-header-cell> Paid</th>
-          <td *matCellDef="let element" mat-cell> {{element.isPaid}} </td>
+          <td *matCellDef="let element" mat-cell> {{element.isPaid? "YES" : "NO"}} </td>
         </ng-container>
 
         <ng-container matColumnDef="actions">

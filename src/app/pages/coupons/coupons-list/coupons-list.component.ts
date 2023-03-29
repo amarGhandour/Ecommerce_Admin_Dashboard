@@ -7,6 +7,8 @@ import {Icoupon} from '@/interfaces/icoupon';
 import {Router} from '@angular/router';
 import {CouponService} from '@services/coupon.service';
 import {DeleteCouponComponent} from '../delete-coupon/delete-coupon.component';
+import {DateTime} from 'luxon';
+
 @Component({
     selector: 'app-coupons-list',
     templateUrl: './coupons-list.component.html',
@@ -69,4 +71,9 @@ export class CouponsListComponent implements OnInit {
             }
         });
     }
+  formatDate(date) {
+    return DateTime.fromISO(date).toFormat('dd LLL yyyy');
+  }
+
+
 }

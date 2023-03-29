@@ -9,7 +9,6 @@ import {LoginComponent} from '@modules/login/login.component';
 import {HeaderComponent} from '@modules/main/header/header.component';
 import {FooterComponent} from '@modules/main/footer/footer.component';
 import {MenuSidebarComponent} from '@modules/main/menu-sidebar/menu-sidebar.component';
-import {BlankComponent} from '@pages/blank/blank.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ProfileComponent} from '@pages/profile/profile.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -24,7 +23,6 @@ import {SidebarSearchComponent} from '@components/sidebar-search/sidebar-search.
 import {ProductsComponent} from '@pages/products/products.component';
 import {CategoriesComponent} from '@pages/categories/categories.component';
 import {MainMenuComponent} from '@pages/main-menu/main-menu.component';
-import {SubMenuComponent} from '@pages/main-menu/sub-menu/sub-menu.component';
 import {MenuItemComponent} from '@components/menu-item/menu-item.component';
 import {ControlSidebarComponent} from '@modules/main/control-sidebar/control-sidebar.component';
 
@@ -44,27 +42,27 @@ import {httpInterceptorsProviders} from '@/interceptors';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
-import {EditCategoryComponent} from './pages/categories/edit-category/edit-category.component';
+import {EditCategoryComponent} from '@pages/categories/edit-category/edit-category.component';
 import {MatDialogModule} from '@angular/material/dialog';
-import {ConfirmDialogComponent} from './components/confirm-dialog/confirm-dialog.component';
-import {AddProductComponent} from './pages/products/add-product/add-product.component';
-import {EditProductComponent} from './pages/products/edit-product/edit-product.component';
+import {ConfirmDialogComponent} from '@components/confirm-dialog/confirm-dialog.component';
+import {AddProductComponent} from '@pages/products/add-product/add-product.component';
+import {EditProductComponent} from '@pages/products/edit-product/edit-product.component';
 import {NgxColorsModule} from 'ngx-colors';
 
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-import {BrandsComponent} from './pages/brands/brands.component';
-import {DeleteBrandComponent} from './pages/brands/delete-brand/delete-brand.component';
-import {AddBrandComponent} from './pages/brands/add-brand/add-brand.component';
-import {EditBrandComponent} from './pages/brands/edit-brand/edit-brand.component';
-import {CouponsListComponent} from './pages/coupons/coupons-list/coupons-list.component';
-import {DeleteCouponComponent} from './pages/coupons/delete-coupon/delete-coupon.component';
-import {AddCouponComponent} from './pages/coupons/add-coupon/add-coupon.component';
-import {EditCouponComponent} from './pages/coupons/edit-coupon/edit-coupon.component';
+import {BrandsComponent} from '@pages/brands/brands.component';
+import {DeleteBrandComponent} from '@pages/brands/delete-brand/delete-brand.component';
+import {AddBrandComponent} from '@pages/brands/add-brand/add-brand.component';
+import {EditBrandComponent} from '@pages/brands/edit-brand/edit-brand.component';
+import {CouponsListComponent} from '@pages/coupons/coupons-list/coupons-list.component';
+import {DeleteCouponComponent} from '@pages/coupons/delete-coupon/delete-coupon.component';
+import {AddCouponComponent} from '@pages/coupons/add-coupon/add-coupon.component';
+import {EditCouponComponent} from '@pages/coupons/edit-coupon/edit-coupon.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
-import { OrdersComponent } from './pages/orders/orders.component';
-import { OrderDetailsComponent } from './pages/orders/order-details/order-details.component';
+import { OrdersComponent } from '@pages/orders/orders.component';
+import { OrderDetailsComponent } from '@pages/orders/order-details/order-details.component';
 defineCustomElements();
 registerLocaleData(localeEn, 'en-EN');
 
@@ -76,7 +74,6 @@ registerLocaleData(localeEn, 'en-EN');
         HeaderComponent,
         FooterComponent,
         MenuSidebarComponent,
-        BlankComponent,
         ProfileComponent,
         RegisterComponent,
         DashboardComponent,
@@ -87,7 +84,6 @@ registerLocaleData(localeEn, 'en-EN');
         RecoverPasswordComponent,
         LanguageComponent,
         MainMenuComponent,
-        SubMenuComponent,
         MenuItemComponent,
         ControlSidebarComponent,
         SidebarSearchComponent,

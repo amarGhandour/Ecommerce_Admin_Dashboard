@@ -35,16 +35,6 @@ export class MenuSidebarComponent implements OnInit {
 
 export const MENU = [
   {
-    name: 'Dashboard',
-    iconClasses: 'fas fa-tachometer-alt',
-    path: ['/']
-  },
-  {
-    name: 'Blank',
-    iconClasses: 'fas fa-file',
-    path: ['/blank']
-  },
-  {
     name: 'Products',
     iconClasses: 'fas fa-suitcase',
     path: ['/products']
@@ -68,22 +58,5 @@ export const MENU = [
     name: 'Orders',
     iconClasses: 'fas fa-tag',
     path: ['/orders']
-  },
-
-  {
-    name: 'Main Menu',
-    iconClasses: 'fas fa-folder',
-    children: [
-      {
-        name: 'Sub Menu',
-        iconClasses: 'far fa-address-book',
-        path: ['/sub-menu-1']
-      },
-      {
-        name: 'Blank',
-        iconClasses: 'fas fa-file',
-        path: ['/sub-menu-2']
-      }
-    ]
   }
-];
+  ];
