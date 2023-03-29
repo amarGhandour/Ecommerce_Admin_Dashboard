@@ -63,6 +63,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import { OrdersComponent } from '@pages/orders/orders.component';
 import { OrderDetailsComponent } from '@pages/orders/order-details/order-details.component';
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 defineCustomElements();
 registerLocaleData(localeEn, 'en-EN');
 
@@ -103,7 +104,7 @@ registerLocaleData(localeEn, 'en-EN');
         AddCouponComponent,
         EditCouponComponent,
         OrdersComponent,
-        OrderDetailsComponent
+        OrderDetailsComponent,
     ],
     imports: [
         BrowserModule,
@@ -127,7 +128,9 @@ registerLocaleData(localeEn, 'en-EN');
         MatInputModule,
         MatDatepickerModule,
         MatNativeDateModule,
-        FormsModule
+        FormsModule,
+        MatProgressSpinnerModule,
+
     ],
     providers: [httpInterceptorsProviders],
     bootstrap: [AppComponent]
