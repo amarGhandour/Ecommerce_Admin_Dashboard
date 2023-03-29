@@ -34,8 +34,8 @@
 
         <!-- Name Column -->
         <ng-container matColumnDef="title">
-          <th *matHeaderCellDef mat-header-cell> Title</th>
-          <td *matCellDef="let element" mat-cell> {{element.title}} </td>
+          <th *matHeaderCellDef mat-header-cell style="max-width: 5rem;"> Title</th>
+          <td *matCellDef="let element" mat-cell style="max-width: 14rem;"> {{element.title}} </td>
         </ng-container>
 
         <!-- Price Column -->
@@ -63,7 +63,7 @@
           </th>
           <td *matCellDef="let row" mat-cell>
             <a
-              class="btn btn-primary d-inline-block mx-2"
+              class="btn btn-primary mx-2 d-inline-block"
               routerLink="/products/{{ row._id }}/edit"
             >Edit</a>
             <button
